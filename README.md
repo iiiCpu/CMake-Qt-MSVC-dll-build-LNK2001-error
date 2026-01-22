@@ -1,11 +1,12 @@
 Tested in QtCreator and Visual Studio Code.
 
 CMake:
-    * MinGW build [OK]
-    * MSVC build `error LNK2001: unresolved external symbol "public: static struct QMetaObject const lpLogger::staticMetaObject" (?staticMetaObject@lpLogger@@2UQMetaObject@@b)`
+   * MinGW build [OK]
+   * MSVC build `error LNK2001: unresolved external symbol "public: static struct QMetaObject const lpLogger::staticMetaObject" (?staticMetaObject@lpLogger@@2UQMetaObject@@b)`
+
 qmake:
-    * MinGW build [OK]
-    * MASV build [OK]
+   * MinGW build [OK]
+   * MASV build [OK]
 
 The successful qmake `link.exe` command be like
 ```
