@@ -1,3 +1,5 @@
+Example for [this post](https://stackoverflow.com/questions/79872574/msvc-linker-lnk2011-error-but-with-symbol-present).
+
 Tested in QtCreator and Visual Studio Code.
 
 CMake:
