@@ -6,7 +6,7 @@ CMake:
 
 qmake:
    * MinGW build [OK]
-   * MASV build [OK]
+   * MSVC build [OK]
 
 The successful qmake `link.exe` command be like
 ```
