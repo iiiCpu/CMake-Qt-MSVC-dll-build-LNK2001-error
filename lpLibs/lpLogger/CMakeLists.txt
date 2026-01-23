@@ -7,7 +7,7 @@ project(lpLogger
   DESCRIPTION "Just another homebrew library for everything"
   LANGUAGES C CXX
 )   
-set(PRIVATE_DEFINE LPLOGGER_LIBRARY)
+set(LP_PRIVATE_DEFINE LPLOGGER_LIBRARY)
 
 list(APPEND QT_DEPENDENCES Core)
 list(APPEND LOCAL_LIBS)

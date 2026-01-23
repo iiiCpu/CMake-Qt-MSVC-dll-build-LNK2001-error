@@ -8,6 +8,7 @@ TEMPLATE = lib
 CONFIG += shared dll
 
 QT     += core
+QT -= gui
 CONFIG += c++17
 
 INCLUDEPATH += $$PWD/include

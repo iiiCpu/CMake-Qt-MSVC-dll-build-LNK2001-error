@@ -82,14 +82,16 @@ function(lpp_make_library) #PRIVATE_DEFINE HEADERS SOURCES QT_DEPENDENCES LOCAL_
         endif()
     endif()
 
-    if (MSVC) 
-        target_link_options(${PROJECT_NAME} PRIVATE "LINKER:/DYNAMICBASE,/NXCOMPAT,/SUBSYSTEM:WINDOWS")
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--export-all-symbols")
+    
+    if(LP_PRIVATE_DEFINE)
+        message(STATUS "Private defines: ${LP_PRIVATE_DEFINE}")
+        foreach(DEP IN LISTS LP_PRIVATE_DEFINE)
+            target_compile_definitions(${PROJECT_NAME} PRIVATE "-D${DEP}")
+        endforeach()
     endif()
 
     set_target_properties(${PROJECT_NAME} PROPERTIES WIN32_EXECUTABLE FALSE)
 
-    target_compile_definitions(${PROJECT_NAME} PUBLIC "$<$<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:${PRIVATE_DEFINE}>")
     target_compile_definitions(${PROJECT_NAME} PUBLIC QT_DEPRECATED_WARNINGS )
 
     #message(STATUS "CMake prefix path: ${CMAKE_PREFIX_PATH}")

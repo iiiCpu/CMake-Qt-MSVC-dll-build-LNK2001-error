@@ -8,7 +8,7 @@ project(QtCommonTools
   DESCRIPTION "Just another homebrew library for everything"
   LANGUAGES C CXX
 )   
-set(PRIVATE_DEFINE QTCOMMONTOOLS_LIBRARY)
+set(LP_PRIVATE_DEFINE QTCOMMONTOOLS_LIBRARY)
 #set(GLOBAL_ALIAS lpLibs::QtCommonTools)
 
 list(APPEND QT_DEPENDENCES Core Network)

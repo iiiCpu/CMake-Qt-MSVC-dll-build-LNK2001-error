@@ -1,5 +1,15 @@
 Example for [this post](https://stackoverflow.com/questions/79872574/msvc-linker-lnk2011-error-but-with-symbol-present).
 
+UPD:
+
+SOLVED!
+
+For some uncertain reason, the `LPLOGGER_LIBRARY` definition were falling through from `lpLogger`'s `CMakeLists.txt` into `QtCommonTools`. Thus, `QtCommonTools` `__dllexport`'ed static fields of all Qt classes (i.e. all `Q_OBJECT` macros) instead of `__dllimport`'ing them. But these static fields had no implementation, just as linker said, because implementations from `lpLogger.dll` were ignored (no `__dllimport`). And so, doing some word magic around `target_compile_definitions` did the trick.
+
+Still, it is unclear to me, why was the `LPLOGGER_LIBRARY` definition passed through. `common.cmake` only uses  `target_compile_definitions` macro, which only affects the current project. And `PRIVATE_DEFINE` variable were of local scope.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
 Tested in QtCreator and Visual Studio Code.
 
 CMake:
